@@ -8,16 +8,18 @@ def myHash(binary_matrix,hexad_clean):
     for i in range(len(transpose_matrix)):
         pass
     pass
-def Compact(pw):    
-    while len(pw) > 25:
-        ns = pw[len(pw)-2:]
-        pw = pw[:len(pw)-2]
-        num = (ord(ns[0]) + ord(ns[1])) % 123
+
+def Compactar(password):    
+    while len(password) > 25:
+        newstring = password[len(password)-2:]
+        password = password[:len(password)-2]
+        num = (ord(newstring[0]) + ord(newstring[1])) % 123
         if(num < 48):
             num+=48
         newLet = chr(num)
-        pw += newLet
-    return pw
+        password += newLet
+    return password
+
 if __name__ == "__main__":
     word = "tres tigres en un trigal aa"
     newWord = ""
@@ -71,4 +73,4 @@ if __name__ == "__main__":
                 suma += (solver[iterator]+j+solver[iterator-1]+solver[iterator-2]+solver[iterator-3]+solver[iterator-4]+solver[iterator-5])
                 iterator=iterator+1
         
-        print(Compact(suma))
+        print(Compactar(suma))
