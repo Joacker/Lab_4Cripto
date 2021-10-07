@@ -60,15 +60,15 @@ if __name__ == "__main__":
             for j in transpose_matrix[i]:
                 suma1 += j
         suma1 = suma1+'1'
-        for i in suma1:
-            mensajebin.append(i)
         print(suma1)
         module = ((448-1-len(mensajebin))%512)
         print(module)
         zeros = '0'*module 
         new_mensaje = suma1 + zeros
         print(new_mensaje)
-        
+        for i in new_mensaje:
+            mensajebin.append(i)
+        print(mensajebin)
 
 
 
