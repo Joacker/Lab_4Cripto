@@ -66,7 +66,8 @@ if __name__ == "__main__":
         module = ((448-1-len(mensajebin))%512)
         print(module)
         zeros = '0'*module 
-
+        new_mensaje = suma1 + zeros
+        
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
