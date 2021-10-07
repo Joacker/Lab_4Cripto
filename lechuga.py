@@ -19,7 +19,7 @@ def Compact(pw):
         pw += newLet
     return pw
 if __name__ == "__main__":
-    word = "tomas el que te lo mete por detras"
+    word = "tres tigres en un trigal aa"
     newWord = ""
     cont = 0
     Tehasheo = ''
