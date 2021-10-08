@@ -3,6 +3,7 @@ import string, numpy, time, random, sys
 #Variables de entorno
 solver = []
 
+#Funciones
 def myHash(binary_matrix,hexad_clean):
     transpose_matrix = numpy.transpose(binary_matrix)
     for i in range(len(transpose_matrix)):
@@ -69,10 +70,9 @@ if __name__ == "__main__":
         for i in new_mensaje:
             mensajebin.append(i)
         print(mensajebin)
-
-
-
-
+        longitud_hex = hex(len(word)*8)
+        print(longitud_hex)
+        #longitud_64bits = 
 
 
 
