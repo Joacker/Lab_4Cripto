@@ -21,6 +21,19 @@ def Compactar(password):
         password += newLet
     return password
 
+def toBinary(a):
+    l,m=[],[]
+    for i in a:
+        l.append(ord(i))
+    for i in l:
+        m.append(int(bin(i)[2:]))
+    return m
+
+def toHex(a):
+    an_integer = int(a, 16)
+    hex_value = hex(an_integer)
+    return hex_value
+
 if __name__ == "__main__":
     word = "tres tigres en un trigal aa"
     newWord = ""
@@ -72,11 +85,14 @@ if __name__ == "__main__":
         print(mensajebin)
         longitud_hex = hex(len(word)*8)
         print(longitud_hex)
-        #longitud_64bits = 
+        longitud_64bits = ""
+        longitud_hex=longitud_hex.replace('0x', '')
+        for i in toBinary(longitud_hex):
+            longitud_64bits = longitud_64bits + str(i)    
 
-
-
-
+        longitud_64bits = longitud_64bits+('0'*64)
+        print(toHex(longitud_64bits))
+        
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
