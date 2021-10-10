@@ -73,26 +73,27 @@ if __name__ == "__main__":
             for j in transpose_matrix[i]:
                 suma1 += j
         suma1 = suma1+'1'
-        print(suma1)
+       # print(suma1)
         module = ((448-1-len(mensajebin))%512)
-        print(module)
+        #print(module)
         zeros = '0'*module 
         new_mensaje = suma1 + zeros
-        print(new_mensaje)
+       # print(new_mensaje)
         for i in new_mensaje:
             mensajebin.append(i)
-        print(mensajebin)
+       # print(mensajebin)
         longitud_hex = hex(len(word)*8)
-        print(longitud_hex)
+        #print(longitud_hex)
         longitud_64bits = ""
         longitud_hex=longitud_hex.replace('0x', '')
         for i in toBinary(longitud_hex):
             longitud_64bits = longitud_64bits + str(i)    
 
         longitud_64bits = ('0'*64)+longitud_64bits
-        print(longitud_64bits)
+        #print(longitud_64bits)
         print(BintoHex(longitud_64bits))
-        
+        mensaje_bin_1_xceros = new_mensaje + longitud_64bits
+        print(len(mensaje_bin_1_xceros))
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
