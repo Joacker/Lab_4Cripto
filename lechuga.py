@@ -1,4 +1,4 @@
-import string, numpy, time, random, sys
+import string, numpy, time, random, sys, math, pprint
 
 #Variables de entorno
 solver = []
@@ -40,6 +40,20 @@ def hexToBinary(a,n):
     #print(bin(int(a, scale))[2:].zfill(num_of_bits))
     newBinnary = bin(int(a, scale))[2:].zfill(num_of_bits)
     return (('0'*n)+newBinnary)
+
+def matrixH0(k):
+    H0 = []
+    for m in range(k):
+        # create a new row 
+        row = []               
+        for n in range(k):
+            if abs(m-n)==1:
+                row.append(numpy.sqrt(n+m+1)/2.)
+            else:
+                row.append(0)
+        H0.append(row)
+    return H0
+
 
 if __name__ == "__main__":
     word = "tres tigres en un trigal AÁ"
@@ -136,15 +150,7 @@ if __name__ == "__main__":
         
         res = [[''] * M] * N
         
-        
-        
-
-
-        for i in range(len(res)):
-            print('-------------'+str(i)+'-------------')
-            for j in range(len(res[i])):
-                print(j)
-            print('-----------------------------------')
+        pprint.pprint(matrixH0(4))
         
         suma = ''
         for i in range(len(transpose_matrix)):
