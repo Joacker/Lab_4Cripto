@@ -113,15 +113,40 @@ if __name__ == "__main__":
         h6 = hexToBinary('0x1f83d9ab'.replace('0x', ''),8)
         h7 = hexToBinary('0x5be0cd19'.replace('0x', ''),8)
         
-        print(h0)
+        '''print(h0)
         print(h1)
         print(h2)
         print(h3)
         print(h4)
         print(h5)
         print(h6)
-        print(h7)
+        print(h7)'''
 
+        #Dividimos el mensaje en 512 bits
+
+        mensaje_bin_1_xceros+='0'*298
+
+        No_piezas = len(mensaje_bin_1_xceros)//3
+        
+        N = 3
+  
+        # Declaring columns
+        M = No_piezas
+        
+        # Using * operator twice to initialize matrix
+        res = [[''] * M] * N
+        
+        # printing result 
+        #print("The matrix after initializing : " + str(res))
+        
+
+
+        for i in range(len(res)):
+            print('-------------'+str(i)+'-------------')
+            for j in range(len(res[i])):
+                print(j)
+            print('-----------------------------------')
+        
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
