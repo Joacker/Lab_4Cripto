@@ -94,6 +94,14 @@ if __name__ == "__main__":
         print(BintoHex(longitud_64bits))
         mensaje_bin_1_xceros = new_mensaje + longitud_64bits
         print(len(mensaje_bin_1_xceros))
+
+
+
+
+
+
+
+        
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
