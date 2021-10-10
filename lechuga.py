@@ -29,10 +29,9 @@ def toBinary(a):
         m.append(int(bin(i)[2:]))
     return m
 
-def toHex(a):
-    an_integer = int(a, 16)
-    hex_value = hex(an_integer)
-    return hex_value
+def BintoHex(a):
+    hstr = '%0*X' % ((len(a) + 3) // 4, int(a, 2))
+    return hstr
 
 if __name__ == "__main__":
     word = "tres tigres en un trigal aa"
@@ -90,8 +89,9 @@ if __name__ == "__main__":
         for i in toBinary(longitud_hex):
             longitud_64bits = longitud_64bits + str(i)    
 
-        longitud_64bits = longitud_64bits+('0'*64)
-        print(toHex(longitud_64bits))
+        longitud_64bits = ('0'*64)+longitud_64bits
+        print(longitud_64bits)
+        print(BintoHex(longitud_64bits))
         
         suma = ''
         for i in range(len(transpose_matrix)):
@@ -99,4 +99,4 @@ if __name__ == "__main__":
                 suma += (solver[iterator]+j+solver[iterator-1]+solver[iterator-2]+solver[iterator-3]+solver[iterator-4]+solver[iterator-5])
                 iterator=iterator+1
         
-        print(Compactar(suma))
+        #print(Compactar(suma))
