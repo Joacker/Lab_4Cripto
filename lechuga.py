@@ -130,14 +130,13 @@ if __name__ == "__main__":
         
         N = 3
   
-        # Declaring columns
+        
         M = No_piezas
         
-        # Using * operator twice to initialize matrix
+        
         res = [[''] * M] * N
         
-        # printing result 
-        #print("The matrix after initializing : " + str(res))
+        
         
 
 
