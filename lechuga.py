@@ -1,5 +1,5 @@
 import string, numpy, time, random, sys, math, pprint
-
+from AVL import treeNode, AVLTree
 #Variables de entorno
 solver = []
 
