@@ -1,5 +1,6 @@
-import string, numpy, time, random, sys, math, pprint
+import string, numpy, time, random, sys, math
 from AVL import treeNode, AVLTree
+from funciones import Compactar, toBinary, BintoHex, hexToBinary, passGenerator
 #Variables de entorno
 solver = []
 
@@ -10,40 +11,10 @@ def myHash(binary_matrix,hexad_clean):
         pass
     pass
 
-def Compactar(password):    
-    while len(password) > 25:
-        newstring = password[len(password)-2:]
-        password = password[:len(password)-2]
-        num = (ord(newstring[0]) + ord(newstring[1])) % 123
-        if(num < 48):
-            num+=48
-        newLet = chr(num)
-        password += newLet
-    return password
-
-def toBinary(a):
-    l,m=[],[]
-    for i in a:
-        l.append(ord(i))
-    for i in l:
-        m.append(int(bin(i)[2:]))
-    return m
-
-def BintoHex(a):
-    hstr = '%0*X' % ((len(a) + 3) // 4, int(a, 2))
-    return hstr
-
-def hexToBinary(a,n):
-    scale = 16 ## equals to hexadecimal
-    num_of_bits = 8
-    newBinnary = ''
-    #print(bin(int(a, scale))[2:].zfill(num_of_bits))
-    newBinnary = bin(int(a, scale))[2:].zfill(num_of_bits)
-    return (('0'*n)+newBinnary)
 
 
 if __name__ == "__main__":
-    word = "tres tigres en un trigal AÁ"
+    word = "123456                                                                                                                                                       "
     newWord = ""
     cont = 0
     Tehasheo = ''
@@ -51,7 +22,7 @@ if __name__ == "__main__":
     if len(word) < 25:
         cantidad = 25 - len(word)
         word = word+''.join(random.choice(abecedario) for j in range(0,cantidad))
-       # print(len(word))
+        #print(len(word))
         #print(word)
     else:
         #len(word) >= 25
@@ -126,7 +97,29 @@ if __name__ == "__main__":
         #print(newmessage)
         for i in solver:
             newmessage = newmessage + i
-        print(newmessage)
+        #print(newmessage)
+
+        valor = (Compactar(passGenerator(newmessage)))
+        print(valor)
+
+        Tree = AVLTree()
+
+        root = None
+
+        root = Tree.insert(root, 1,valor)
+        root = Tree.insert(root, 2,5)
+        root = Tree.insert(root, 3,5)
+        root = Tree.insert(root, 4,5)
+        root = Tree.insert(root, 5,5)
+        root = Tree.insert(root, 6,5)
+
+        # Preorder Traversal
+        print("Preorder traversal of the",
+            "constructed AVL tree is")
+        Tree.preOrder(root)
+        print()
+
+
 
         suma = ''
         for i in range(len(transpose_matrix)):
