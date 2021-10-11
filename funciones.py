@@ -62,7 +62,7 @@ def myHash(hexad_clean, word):
     #print(newmessage)
     
     valor = (Compactar(passGenerator(newmessage)))
-    print(valor)
+    return(valor)
 
 def newPass(pwd):
     hexad_clean = []; values2hexad = []; arr = []; arr1 = [];

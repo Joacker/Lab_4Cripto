@@ -8,7 +8,7 @@ from funciones import newPass, myHash
 if __name__ == "__main__":
     word = "1010"
     hexad_clean = newPass(word)
-    myHash(hexad_clean,word)
+    print(myHash(hexad_clean,word))
     
     
     Tree = AVLTree()
@@ -28,5 +28,4 @@ if __name__ == "__main__":
     Tree.preOrder(root)
     print()
 
-    
     #print(Compactar(suma))
