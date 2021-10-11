@@ -1,5 +1,5 @@
 #Imports
-import sys
+import sys, time
 from AVL import AVLTree
 from funciones import newPass, myHash
 
