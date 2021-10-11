@@ -16,8 +16,6 @@ def myHash(binary_matrix,hexad_clean):
 if __name__ == "__main__":
     word = "123456                                                                                                                                                       "
     newWord = ""
-    cont = 0
-    Tehasheo = ''
     abecedario = string.ascii_letters + string.digits
     if len(word) < 25:
         cantidad = 25 - len(word)
@@ -41,7 +39,6 @@ if __name__ == "__main__":
                 j = j.replace('0x', '')
                 hexad_clean.append(j)
                 solver.append(j)
-            cont+=1
         #print(hexad_clean)
         scale = 16; binary_line = []; iterator = 0
         for i in range(len(hexad_clean)):
