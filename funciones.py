@@ -1,6 +1,44 @@
 #Funciones
 import string, numpy, time, random, sys, math
 
+solver = [];
+
+def newPass(pwd):
+    hexad_clean = []; values2hexad = []; arr = []; arr1 = [];
+    if (len(pwd)<25):
+        suma = 0
+        cantidad = 25 - len(pwd)
+        abecedario = string.ascii_letters + string.digits
+        word = pwd+''.join(random.choice(abecedario) for j in range(0,cantidad))
+        for i in range(25):
+            for j in word:
+                suma = suma + ord(j)
+            arr1.append(suma)
+            values2hexad.append(hex(arr1[i]))
+            for j in values2hexad[i::2]:
+                j = j.replace('0x', '')
+                hexad_clean.append(j)
+                solver.append(j)
+
+        return (hexad_clean)
+
+    intervalo = len(pwd) / 25
+    for i in range(25):
+        #print("[",int(intervalo*i),",",int(intervalo*(i+1)),"[","==",str(word[int(intervalo*i):int(intervalo*(i+1))]))
+        #print(word[int(intervalo*i):int(intervalo*(i+1))])
+        arr.append(pwd[int(intervalo*i):int(intervalo*(i+1))])
+        suma=0
+        for j in arr[i]:
+            suma = suma + ord(j)
+        arr1.append(suma)
+        values2hexad.append(hex(arr1[i]))
+        for j in values2hexad[i::2]:
+            j = j.replace('0x', '')
+            hexad_clean.append(j)
+            solver.append(j)
+    #print(hexad_clean)
+    return (hexad_clean)
+
 def Compactar(password):    
     while len(password) > 25:
         newstring = password[len(password)-2:]
