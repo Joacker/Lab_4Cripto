@@ -1,8 +1,10 @@
-#Funciones
+#Imports
 import string, numpy, time, random, sys, math
 
+#Variables de Entorno
 solver = [];
 
+#Funciones
 def myHash(hexad_clean, word):
     binary_matrix = []
     scale = 16; binary_line = []; iterator = 0
@@ -49,7 +51,6 @@ def myHash(hexad_clean, word):
 
 
     ht = h0+h1+h2+h3+h4+h5+h6+h7
-    #Dividimos el mensaje en 512 bits
     
     otherword = ''
     #print(otherword)
