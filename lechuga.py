@@ -41,19 +41,6 @@ def hexToBinary(a,n):
     newBinnary = bin(int(a, scale))[2:].zfill(num_of_bits)
     return (('0'*n)+newBinnary)
 
-def matrixH0(k):
-    H0 = []
-    for m in range(k):
-        # create a new row 
-        row = []               
-        for n in range(k):
-            if abs(m-n)==1:
-                row.append(numpy.sqrt(n+m+1)/2.)
-            else:
-                row.append(0)
-        H0.append(row)
-    return H0
-
 
 if __name__ == "__main__":
     word = "tres tigres en un trigal AÁ"
@@ -127,30 +114,17 @@ if __name__ == "__main__":
         h6 = hexToBinary('0x1f83d9ab'.replace('0x', ''),8)
         h7 = hexToBinary('0x5be0cd19'.replace('0x', ''),8)
         
-        '''print(h0)
-        print(h1)
-        print(h2)
-        print(h3)
-        print(h4)
-        print(h5)
-        print(h6)
-        print(h7)'''
 
+        ht = h0+h1+h2+h3+h4+h5+h6+h7
         #Dividimos el mensaje en 512 bits
 
+        otherword = ''
+        #print(otherword)
+        otherword ='♫☼►◄↕‼¶§▬↨↑↓→∟↔▲▼123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ'
         mensaje_bin_1_xceros+='0'*298
+        newmessage = otherword+BintoHex(mensaje_bin_1_xceros)+BintoHex(ht)+otherword
+        print(newmessage)
 
-        No_piezas = len(mensaje_bin_1_xceros)//3
-        
-        N = 3
-  
-        
-        M = No_piezas
-        
-        
-        res = [[''] * M] * N
-        
-        pprint.pprint(matrixH0(4))
         
         suma = ''
         for i in range(len(transpose_matrix)):
