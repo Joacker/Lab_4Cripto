@@ -1,3 +1,4 @@
+#Funciones
 import string, numpy, time, random, sys, math
 
 def Compactar(password):    

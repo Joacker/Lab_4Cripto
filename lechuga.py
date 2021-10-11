@@ -1,23 +1,28 @@
+#Imports
 import string, numpy, time, random, sys, math
 from AVL import treeNode, AVLTree
 from funciones import Compactar, toBinary, BintoHex, hexToBinary, passGenerator
+
 #Variables de entorno
-solver = []
+solver = []; hexad_clean = []; values2hexad = [];
 
 #Funciones
-def myHash(binary_matrix,hexad_clean):
-    transpose_matrix = numpy.transpose(binary_matrix)
-    for i in range(len(transpose_matrix)):
-        pass
+def newPass(pwd):
+    if (len(pwd)<25):
+        cantidad = 25 - len(pwd)
+        abecedario = string.ascii_letters + string.digits
+        word = pwd+''.join(random.choice(abecedario) for j in range(0,cantidad))
+        return (word)
+    return (pwd)
+        
+
+def Hash():
     pass
 
-
-
 if __name__ == "__main__":
-    word = "123456                                                                                                                                                       "
-    newWord = ""
-    abecedario = string.ascii_letters + string.digits
+    word = "123456alsjkdalksdjalksdjalskdjlaskdjaklsdjklasjdklasjdlkasjdkljasldkjaslkdjas"
     if len(word) < 25:
+        abecedario = string.ascii_letters + string.digits
         cantidad = 25 - len(word)
         word = word+''.join(random.choice(abecedario) for j in range(0,cantidad))
         #print(len(word))
@@ -29,6 +34,7 @@ if __name__ == "__main__":
 
         for i in range(25):
             #print("[",int(intervalo*i),",",int(intervalo*(i+1)),"[","==",str(word[int(intervalo*i):int(intervalo*(i+1))]))
+            print(word[int(intervalo*i):int(intervalo*(i+1))])
             arr.append(word[int(intervalo*i):int(intervalo*(i+1))])
             suma=0
             for j in arr[i]:
@@ -39,7 +45,8 @@ if __name__ == "__main__":
                 j = j.replace('0x', '')
                 hexad_clean.append(j)
                 solver.append(j)
-        #print(hexad_clean)
+        print(hexad_clean)
+
         scale = 16; binary_line = []; iterator = 0
         for i in range(len(hexad_clean)):
             hexad_clean[i] = bin(int(hexad_clean[i], scale))[2:].zfill(8)
