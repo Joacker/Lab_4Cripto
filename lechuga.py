@@ -5,7 +5,6 @@ from funciones import newPass, myHash
 
 #Funciones    
 
-
 if __name__ == "__main__":
     word = "1010"
     hexad_clean = newPass(word)
