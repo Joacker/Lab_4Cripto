@@ -91,19 +91,3 @@ class AVLTree(object):
 		print("{0} ".format(root.value), end="")
 		self.preOrder(root.l)
 		self.preOrder(root.r)
-
-'''Tree = AVLTree()
-root = None
-
-root = Tree.insert(root, 1,5)
-root = Tree.insert(root, 2,5)
-root = Tree.insert(root, 3,5)
-root = Tree.insert(root, 4,5)
-root = Tree.insert(root, 5,5)
-root = Tree.insert(root, 6,5)
-
-# Preorder Traversal
-print("Preorder traversal of the",
-	"constructed AVL tree is")
-Tree.preOrder(root)
-print()'''
