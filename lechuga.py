@@ -101,9 +101,9 @@ if __name__ == "__main__":
 
         longitud_64bits = ('0'*64)+longitud_64bits
         #print(longitud_64bits)
-        print(BintoHex(longitud_64bits))
+        #print(BintoHex(longitud_64bits))
         mensaje_bin_1_xceros = new_mensaje + longitud_64bits
-        print(len(mensaje_bin_1_xceros))
+       # print(len(mensaje_bin_1_xceros))
         
         h0 = hexToBinary('0x6a09e667'.replace('0x', ''),8)
         h1 = hexToBinary('0xbb67ae85'.replace('0x', ''),8)
@@ -123,13 +123,15 @@ if __name__ == "__main__":
         otherword ='♫☼►◄↕‼¶§▬↨↑↓→∟↔▲▼123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ'
         mensaje_bin_1_xceros+='0'*298
         newmessage = otherword+BintoHex(mensaje_bin_1_xceros)+BintoHex(ht)+otherword
+        #print(newmessage)
+        for i in solver:
+            newmessage = newmessage + i
         print(newmessage)
 
-        
         suma = ''
         for i in range(len(transpose_matrix)):
             for j in transpose_matrix[i]:
                 suma += (solver[iterator]+j+solver[iterator-1]+solver[iterator-2]+solver[iterator-3]+solver[iterator-4]+solver[iterator-5])
                 iterator=iterator+1
         
-        print(Compactar(suma))
+        #print(Compactar(suma))
