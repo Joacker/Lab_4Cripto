@@ -1,24 +1,25 @@
 import time as t
 
 class treeNode(object):
-    	def __init__(self, value, password):
-            #value es tiempo y password
-            self.value = value
-            self.password = password
-            self.l = None
-            self.r = None
-            self.h = 1
+    def __init__(self, value, password, word):
+        #value es tiempo y password
+        self.value = value
+        self.password = password
+        self.word = word
+        self.l = None
+        self.r = None
+        self.h = 1
 
 class AVLTree(object):
 
-	def insert(self, root, key,password):
+	def insert(self, root, key,password,word):
 	
 		if not root:
-			return treeNode(key,password)
+			return treeNode(key,password,word)
 		elif key < root.value:
-			root.l = self.insert(root.l, key,password)
+			root.l = self.insert(root.l, key,password,word)
 		else:
-			root.r = self.insert(root.r, key,password)
+			root.r = self.insert(root.r, key,password,word)
 
 		root.h = 1 + max(self.getHeight(root.l),
 						self.getHeight(root.r))
@@ -82,6 +83,17 @@ class AVLTree(object):
 			return 0
 
 		return self.getHeight(root.l) - self.getHeight(root.r)
+
+	def Search(self, root, pwd):
+    
+		if not root:
+			return
+		if root.word == pwd:
+    			print('Ya se encuentra dentro del arbol')
+    			return (root)
+		print("{0} ".format(root.word), end="")
+		self.Search(root.l)
+		self.Search(root.r)
 
 	def preOrder(self, root):
 
