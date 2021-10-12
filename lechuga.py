@@ -9,33 +9,33 @@ size = 0
 #Main   
 if __name__ == "__main__":
     seguir = True; Tree = AVLTree(); root = None
+    size+=1
+    root = Tree.insert(root,size,'1','1')
+    decision = ''
     while(seguir):
         word = input('Ingrese password: ')
         word = str(word)
         hexad_clean = newPass(word)
-        print(myHash(hexad_clean,word))
-        hashedpass = myHash(hexad_clean,word)
-        
-        root = None
-        root.
-        size = size+1
-        if(Tree.Search(root,word) == None):
+        #print(myHash(hexad_clean,word))
+        if (Tree.getHeight(root)==1):
+            hashedpass = myHash(hexad_clean,word)
             root = Tree.insert(root, size, hashedpass, word)
-        
-        seguir = False
-        
-        
-
-        print("Preorder traversal of the",
-            "constructed AVL tree is")
-        Tree.Search(root,word)
-        print()
-        word = ''
-    '''root = Tree.insert(root, 2,5)
-    root = Tree.insert(root, 3,5)
-    root = Tree.insert(root, 4,5)
-    root = Tree.insert(root, 5,5)
-    root = Tree.insert(root, 6,5)'''
+            print(hashedpass)  
+        else:
+            if(Tree.Search(root,word) != ''):
+                print(Tree.Search(root,word))
+            else:
+                hashedpass = myHash(hexad_clean,word)
+                root = Tree.insert(root, size, hashedpass, word)
+                print(hashedpass)
+        #root = Tree.insert(root, size, hashedpass, word)
+        decision = input('Desea continuar ¿Si o No?\n')
+        if (decision == 'No'):
+            seguir = False
+        else:
+            #hashedpass=''
+            word = ''
+            root = None
 
     # Preorder Traversal
 

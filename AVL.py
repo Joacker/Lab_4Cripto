@@ -12,7 +12,7 @@ class treeNode(object):
 
 class AVLTree(object):
 
-	def insert(self, root, key,password,word):
+	def insert(self, root,key,password,word):
 	
 		if not root:
 			return treeNode(key,password,word)
@@ -85,12 +85,11 @@ class AVLTree(object):
 		return self.getHeight(root.l) - self.getHeight(root.r)
 
 	def Search(self, root, pwd):
-    
 		if not root:
 			return
 		if root.word == pwd:
     			print('Ya se encuentra dentro del arbol')
-    			return (root)
+    			return (root.password)
 		print("{0} ".format(root.word), end="")
 		self.Search(root.l)
 		self.Search(root.r)
