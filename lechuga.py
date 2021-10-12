@@ -10,9 +10,10 @@ size = 0
 if __name__ == "__main__":
     seguir = True; Tree = AVLTree(); root = None
     size+=1
-    root = Tree.insert(root,size,'1','1')
+    root = Tree.insert(root,size,'root','root')
     decision = ''
     while(seguir):
+        #root = None
         word = input('Ingrese password: ')
         word = str(word)
         hexad_clean = newPass(word)
@@ -35,7 +36,7 @@ if __name__ == "__main__":
         else:
             #hashedpass=''
             word = ''
-            root = None
+            #root = None
 
     # Preorder Traversal
 
