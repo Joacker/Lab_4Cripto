@@ -20,26 +20,22 @@ if __name__ == "__main__":
         #print(myHash(hexad_clean,word))
         if (Tree.getHeight(root)==1):
             hashedpass = myHash(hexad_clean,word)
+            size+=1
             root = Tree.insert(root, size, hashedpass, word)
             print(hashedpass)  
         else:
-            if(Tree.Search(root,word) == word):
+            if(Tree.Search(root,word)):
                 print('entrando a busqueda')
-                print(Tree.Search(root,word))
+                print(Tree.Search(root,word)[1])
             else:
                 print('agregando elementos')
                 hashedpass = myHash(hexad_clean,word)
+                size+=1
                 root = Tree.insert(root, size, hashedpass, word)
                 print(hashedpass)
         #root = Tree.insert(root, size, hashedpass, word)
         decision = input('Desea continuar ¿Si o No?\n')
         if (decision == 'No'):
+            #print(Tree.preOrder(root))
             seguir = False
-        else:
-            #hashedpass=''
-            word = ''
-            root = None
-
-    # Preorder Traversal
-
-    #print(Compactar(suma))
+        word = ''

@@ -88,11 +88,15 @@ class AVLTree(object):
 		if not root:
 			return
 		if root.word == pwd:
-    			print('Ya se encuentra dentro del arbol')
-    			return (root.word)
-		print("{0} ".format(root.word), end="")
-		self.Search(root.l,pwd)
-		self.Search(root.r,pwd)
+    			#print('Ya se encuentra dentro del arbol')
+    			return (root.word,root.password)
+		#print("{0} ".format(root.word), end="")
+		izquierda = (self.Search(root.l,pwd))
+		derecha = (self.Search(root.r,pwd))
+		if(izquierda):
+    			return (izquierda)
+		if(derecha):
+    			return (derecha)
 
 	def preOrder(self, root):
 
