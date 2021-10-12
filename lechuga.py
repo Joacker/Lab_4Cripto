@@ -23,9 +23,11 @@ if __name__ == "__main__":
             root = Tree.insert(root, size, hashedpass, word)
             print(hashedpass)  
         else:
-            if(Tree.Search(root,word) != ''):
+            if(Tree.Search(root,word) == word):
+                print('entrando a busqueda')
                 print(Tree.Search(root,word))
             else:
+                print('agregando elementos')
                 hashedpass = myHash(hexad_clean,word)
                 root = Tree.insert(root, size, hashedpass, word)
                 print(hashedpass)
@@ -36,7 +38,7 @@ if __name__ == "__main__":
         else:
             #hashedpass=''
             word = ''
-            #root = None
+            root = None
 
     # Preorder Traversal
 
