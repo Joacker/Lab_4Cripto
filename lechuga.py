@@ -61,14 +61,55 @@ def newHash(palabra):
     
     return(Compactar(myhash))
 
+def readFile():
+    palabra = '';
+    with open('./rockyou.txt',encoding = 'utf8') as file:
+        for i in file:
+            palabra = i
+            word = palabra.encode("utf-8").hex()
+            kPonder = 0
+            for j in (hexToBinary(word)):
+                kPonder+=(int(j)*(len(hexToBinary(word))//3))
+            valores = kPonder
+            print(newHash(palabra))
+            palabra = ''
+
 if __name__ == "__main__":
     #print(sys.argv)
-    palabra = ' '
+    '''palabra = ' '
     word = palabra.encode("utf-8").hex()
     kPonder = 0
-    for i in (hexToBinary(word)):
-        kPonder+=(int(i)*(len(hexToBinary(word))//3))
+    for j in (hexToBinary(word)):
+        kPonder+=(int(j)*(len(hexToBinary(word))//3))
     valores = kPonder
-    print(newHash(palabra))
-    #print(kPonder)
+    print(newHash(palabra))'''
     
+    seguir = True; opcion = ''
+    while seguir:
+        print('Ingrese una opcion.....')
+        print('(1) Ingrese palabra...')
+        print('(2) Ingrese el nombre de un archivo (tiene que estar dentro del directorio)....\n')
+        print('(3) Valor de Entropia....')
+        print('Presione otra tecla para cerrar el programa...')
+        opcion = input('Ingrese opcion...')
+        opcion = str(opcion)
+        if (opcion == '1'):
+
+            palabra = input('Ingrese clave para ser hasheada...\n')
+            word = palabra.encode("utf-8").hex()
+            kPonder = 0
+            for i in (hexToBinary(word)):
+                kPonder+=(int(i)*(len(hexToBinary(word))//3))
+            valores = kPonder
+            print(newHash(palabra))
+        elif (opcion == '2'):
+
+            archivo = 'rockyou.txt'
+            readFile()
+        
+        elif (opcion == '3'):
+            pass
+        else:
+            seguir = False
+    #print(kPonder)'''
+        
