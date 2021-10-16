@@ -99,7 +99,7 @@ if __name__ == "__main__":
             valores = kPonder
             newpalabra = padding(palabra)
             Hashed = newHash(str(newpalabra))
-            print(palabra,'| ======> |',Hashed)
+            print(palabra+' | ======> | '+Hashed)
         elif (opcion == '2'):
             archivo = input('Ingrese el nombre de un archivo (que debe agregarlo al directorio): \n')
             palabra = '';
@@ -113,7 +113,7 @@ if __name__ == "__main__":
                     valores = kPonder
                     newpalabra = padding(palabra)
                     Hashed = newHash(str(newpalabra))
-                    print(palabra,'| ======> |',Hashed)
+                    print(palabra+' | ======> | '+Hashed)
                     factorlargo = len(Hashed)
                     #print(newHash(palabra))
                     palabra = ''
