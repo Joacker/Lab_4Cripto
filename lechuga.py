@@ -87,7 +87,7 @@ if __name__ == "__main__":
         print('(2) Ingrese el nombre de un archivo (tiene que estar dentro del directorio)....')
         print('(3) Valor de Entropia....')
         print('Presione otra tecla para cerrar el programa...')
-        opcion = input('Ingrese opcion...')
+        opcion = input('Ingrese opcion...\n')
         opcion = str(opcion)
         if (opcion == '1'):
 
@@ -99,7 +99,7 @@ if __name__ == "__main__":
             valores = kPonder
             newpalabra = padding(palabra)
             Hashed = newHash(str(newpalabra))
-            print(Hashed)
+            print(palabra,'| ======> |',Hashed)
         elif (opcion == '2'):
             archivo = input('Ingrese el nombre de un archivo (que debe agregarlo al directorio): \n')
             palabra = '';
@@ -113,7 +113,7 @@ if __name__ == "__main__":
                     valores = kPonder
                     newpalabra = padding(palabra)
                     Hashed = newHash(str(newpalabra))
-                    print(Hashed)
+                    print(palabra,'| ======> |',Hashed)
                     factorlargo = len(Hashed)
                     #print(newHash(palabra))
                     palabra = ''
