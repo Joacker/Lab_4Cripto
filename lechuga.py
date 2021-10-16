@@ -4,17 +4,21 @@ from funciones import Compactar,hexToBinary
 from datetime import datetime, timedelta
 futuredate = datetime.now() + timedelta(days=10)
 #Variables de entorno
-size = 0
-diccionario = string.ascii_letters+string.digits+'♫☼►◄↕‼¶§▬↨↑↓→∟↔▲▼123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ'
 
-def name(n):
-     return (n**2)+2*n+1
+# Diccionario con tadas las letras que use
+diccionario = '♫☼►◄↕‼¶§▬↨↑↓→∟↔▲▼123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ'
+
 
 factorlargo = 0
 tiempo = time.time()
 valores = 0
 seconds = futuredate.toordinal()
 
+# Primera función seed
+def name(n):
+     return (n**2)+2*n+1
+
+# Segunda funcion seed
 def padding(pwd):
     cantidad = len(pwd)
     newSeed = 0 
@@ -23,20 +27,19 @@ def padding(pwd):
 
     return newSeed
 
+
+#Funcion que se encarga de segmenrtar y complejizar el hash de esta forma lo divide en 25 partes el string como tal
 def Segmentation25(pwd):
     arr = []; base = 0; solver = []; largos = []
     intervalo = len(pwd) / 25
     dicIntervalo = len(diccionario) / 25
     for i in range(25):
-        #print("[",int(intervalo*i),",",int(intervalo*(i+1)),"[","==",str(word[int(intervalo*i):int(intervalo*(i+1))]))
-        #print(word[int(intervalo*i):int(intervalo*(i+1))])
         
         k = len((pwd[int(intervalo*i):int(intervalo*(i+1))]))
 
         arr.append(((pwd[int(intervalo*i):int(intervalo*(i+1))])))
         
         largos.append((len(arr[i]))*k*(i+1))
-        #c = (x + n) % 26   
         suma = 0
         
         for j in range(len(arr[i])):
@@ -47,6 +50,7 @@ def Segmentation25(pwd):
         
     return solver,largos
 
+#Función que arma el Hash
 def newHash(palabra):
 
     if (len(palabra)<25):
@@ -70,9 +74,11 @@ def newHash(palabra):
     
     return(Compactar(myhash))
 
+#Funcion que determina la entropia
 def Entropia(word):
     return math.log(256,2)*len(word)
 
+#Menu de seleccion
 if __name__ == "__main__":
     seguir = True; opcion = '';
     while seguir:
