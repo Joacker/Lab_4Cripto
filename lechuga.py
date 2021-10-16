@@ -85,7 +85,7 @@ if __name__ == "__main__":
             Hashed = newHash(palabra)
             print(Hashed)
         elif (opcion == '2'):
-            archivo = input('Ingrese el nombre de un archivo (que este dentro del directorio): \n')
+            archivo = input('Ingrese el nombre de un archivo (que debe agregarlo al directorio): \n')
             palabra = '';
             with open('./'+archivo, 'r',errors='ignore') as log_file_fh:
                 for i in log_file_fh:
