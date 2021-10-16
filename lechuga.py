@@ -15,6 +15,14 @@ tiempo = time.time()
 valores = 0
 seconds = futuredate.toordinal()
 
+def padding(pwd):
+    cantidad = len(pwd)
+    newSeed = 0 
+    for i in range (0, cantidad):
+        newSeed = cantidad*newSeed + ord(pwd[i])
+
+    return newSeed
+
 def Segmentation25(pwd):
     arr = []; base = 0; solver = []; largos = []
     intervalo = len(pwd) / 25
@@ -40,13 +48,14 @@ def Segmentation25(pwd):
     return solver,largos
 
 def newHash(palabra):
+
     if (len(palabra)<25):
         #palabra = palabra + '0'*(25-len(palabra))
         sumita = 0
         for i in palabra:
             sumita = ord(i)
         for i in range(25):
-            palabra = str(seconds*seconds*seconds*i)+palabra+i*str(seconds*seconds)+ diccionario[(i*sumita*seconds+int(seconds**i))%len(diccionario)]
+            palabra = str(seconds*seconds*seconds*i*tiempo)+palabra+i*str(seconds*seconds*tiempo)+ diccionario[(i*sumita*seconds+int(seconds**i))%len(diccionario)]
 
     largos = Segmentation25(palabra)[1]
     array = Segmentation25(palabra)[0]
@@ -82,7 +91,8 @@ if __name__ == "__main__":
             for i in (hexToBinary(word)):
                 kPonder+=(int(i)*(len(hexToBinary(word))//3))
             valores = kPonder
-            Hashed = newHash(palabra)
+            newpalabra = padding(palabra)
+            Hashed = newHash(str(newpalabra))
             print(Hashed)
         elif (opcion == '2'):
             archivo = input('Ingrese el nombre de un archivo (que debe agregarlo al directorio): \n')
@@ -95,7 +105,8 @@ if __name__ == "__main__":
                     for j in (hexToBinary(word)):
                         kPonder+=(int(j)*(len(hexToBinary(word))//3))
                     valores = kPonder
-                    Hashed = newHash(palabra)
+                    newpalabra = padding(palabra)
+                    Hashed = newHash(str(newpalabra))
                     print(Hashed)
                     factorlargo = len(Hashed)
                     #print(newHash(palabra))
@@ -128,4 +139,3 @@ G:::::G        G::::G r:::::r           a::::aaaa::::::ac:::::c              i::
 ''')
             seguir = False
     #print(kPonder)'''
-        

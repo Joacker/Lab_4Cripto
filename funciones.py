@@ -2,7 +2,7 @@
 import string, numpy, time, random, sys, math
 
 #Variables de Entorno
-solver = [];
+
 
 #Funciones
 
@@ -36,6 +36,3 @@ def hexToBinary(a):
     #print(bin(int(a, scale))[2:].zfill(num_of_bits))
     newBinnary = bin(int(a, scale))[2:].zfill(num_of_bits)
     return (newBinnary)
-
-def Entropia(pwd):
-    pass
