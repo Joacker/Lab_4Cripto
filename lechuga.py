@@ -102,9 +102,11 @@ if __name__ == "__main__":
             print(palabra+' | ======> | '+Hashed)
         elif (opcion == '2'):
             archivo = input('Ingrese el nombre de un archivo (que debe agregarlo al directorio): \n')
-            palabra = '';
-            with open('./'+archivo, 'r',errors='ignore') as log_file_fh:
+            palabra = ''; cont = 0
+            with open('../'+archivo, 'r',errors='ignore') as log_file_fh:
                 for i in log_file_fh:
+                    if cont == 50:
+                        break
                     palabra = i
                     word = palabra.encode("utf-8").hex()
                     kPonder = 0
@@ -113,10 +115,11 @@ if __name__ == "__main__":
                     valores = kPonder
                     newpalabra = padding(palabra)
                     Hashed = newHash(str(newpalabra))
-                    print(palabra+' | ======> | '+Hashed)
+                    print(palabra+' | ======> | '+Hashed+'\n')
                     factorlargo = len(Hashed)
                     #print(newHash(palabra))
                     palabra = ''
+                    cont+=1
         
         elif (opcion == '3'):
             a = " "
@@ -145,3 +148,5 @@ G:::::G        G::::G r:::::r           a::::aaaa::::::ac:::::c              i::
 ''')
             seguir = False
     #print(kPonder)'''
+
+
